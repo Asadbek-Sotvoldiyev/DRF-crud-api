@@ -1,5 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
+from .models import Student
 from .serializers import StudentSerializer, Student
 from rest_framework.response import Response
 
@@ -40,5 +42,10 @@ class StudentDeleteApiView(APIView):
         student.delete()
 
         return Response({"Message":"Deleted"})
+
+
+class StudentViewSet(ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
 
