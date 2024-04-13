@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration'
-    'whitenoise.runserver.nostatic'
+    'whitenoise.runserver_nostatic'
 
 ]
 
