@@ -46,12 +46,14 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration'
+    'whitenoise.runserver.nostatic'
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -141,6 +143,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR.joinpath('static'), ]
 STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifest.StaticFilesStorage'
 
 
 MEDIA_URL = 'media/'
